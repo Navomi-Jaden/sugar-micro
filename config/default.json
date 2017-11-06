@@ -1,0 +1,33 @@
+{
+	"host": "localhost",
+	"port": 3031,
+	"paginate": {
+		"default": 10,
+		"max": 50
+	},
+	"authentication": {
+		"secret": "114913acf82567429eed8ae89047582efe810386dc052d60c2a953b6d33d854f79e540ad60ef6478ff8823deef48c70ca90d2bd7a548b416f1158f7c3b0e3c823800a8f0b488d662e4b7b11baede65beb8dd89e77245a2120b6c48284b9386c8d52f6d457019e30868f7b6f47e304926249b7a9287e9d50c5c6f0b344563b543c7520d9335bfa05daf43ce4dbb5521eb74f09c2a38f27f03fd6b0358cebe1fd975d66714dec39075d5ad6803022f0275ee4270bcea6c4ba7129e84a3fa5c76f407f0ee39bd13c96ef52ae1f6dbce374ccbda88c82958a822f8d6b266d6e417c1f0229a4e5090294b1e1b51a5db3600e6edbd865203f225643ddbd85ade5e66d2",
+		"strategies": [
+			"jwt",
+			"local"
+		],
+		"path": "/authentication",
+		"service": "users",
+		"jwt": {
+			"header": {
+				"type": "access"
+			},
+			"audience": "https://sugar.navomi.com",
+			"subject": "anonymous",
+			"issuer": "navomi",
+			"algorithm": "HS256",
+			"expiresIn": "1d"
+		},
+		"local": {
+			"entity": "user",
+			"usernameField": "username",
+			"passwordField": "password"
+		}
+	},
+	"nedb": "../data"
+}
