@@ -1,6 +1,6 @@
 const {
 	authenticate
-} = require('feathers-authentication').hooks;
+} = require('@feathersjs/authentication').hooks;
 const commonHooks = require('feathers-hooks-common');
 const {
 	restrictToOwner
@@ -8,7 +8,7 @@ const {
 
 const {
 	hashPassword
-} = require('feathers-authentication-local').hooks;
+} = require('@feathersjs/authentication-local').hooks;
 const restrict = [
 	authenticate('jwt'),
 	restrictToOwner({

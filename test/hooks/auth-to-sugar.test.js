@@ -1,7 +1,7 @@
 const assert = require('assert');
-const authToSugar = require('../../src/hooks/auth-to-sugar');
+const authToSugar = require('../../src/hooks/authenticate-to-sugar');
 
-describe('\'authToSugar\' hook', () => {
+describe('\'authenticateToSugar\' hook', () => {
 	it('runs the hook', () => {
 		// A mock hook object
 		const mock = {};

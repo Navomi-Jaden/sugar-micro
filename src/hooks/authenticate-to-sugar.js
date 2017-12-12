@@ -3,7 +3,7 @@ const axios = require('axios');
 const {
 	NotAuthenticated,
 	BadRequest
-} = require('feathers-errors');
+} = require('@feathersjs/errors');
 const {
 	info
 } = require('winston');
@@ -54,7 +54,7 @@ module.exports = function(options = {}) { // eslint-disable-line no-unused-vars
 						});
 					}
 
-					return reject('Local is only available on the /authentication path');
+					return reject(new BadRequest(`Local is only available on the ''/authentication' path`));
 				} else if (strategy === 'jwt' || (strategy === '' && hook.params.headers.authorization)) {
 					let token = (hook.params.headers.authorization || hook.data.access_token || '').replace(/Bearer\s/, '');
 
@@ -71,7 +71,7 @@ module.exports = function(options = {}) { // eslint-disable-line no-unused-vars
 									grant_type: 'refresh_token',
 									refresh_token: jwt.refresh_token,
 									client_id: jwt.client_id,
-									client_secret: jwt.client_secret,
+									client_secret: jwt.client_secret
 								}).then(res => {
 									jwt.access_token = res.data.access_token;
 									jwt.refresh_token = res.data.refresh_token;

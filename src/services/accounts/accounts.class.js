@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const { NotAuthenticated, BadRequest, NotFound } = require('feathers-errors');
+const { NotAuthenticated, BadRequest, NotFound } = require('@feathersjs/errors');
 
 /* eslint-disable no-unused-vars */
 class Service {
